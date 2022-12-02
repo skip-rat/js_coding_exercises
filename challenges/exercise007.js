@@ -7,18 +7,20 @@ export const sumDigits = (n) => {
   if (typeof n != "number") throw new Error("number is required");
 
   // convert number to string and iterate over chars
-  let str = "" + n;
+  const str = "" + n;
   let i = str.length;
   let sum = 0;
-  while (i--) {
+  while (i--) 
+  {
     // only look at digit chars
-    if (/\d/.test(str[i])) {
+    if (/\d/.test(str[i])) 
+    {
       sum += Number(str[i]);
     }
   }
 
   return sum;
-};
+}
 
 /**
  * This function creates a range of numbers as an array. It received a start, an end and a step. Step is the gap between numbers in the range. 
@@ -37,12 +39,13 @@ export const createRange = (start, end, step) => {
   }
 
   const arr = new Array();
-  for (let n = start; n <= end; n += step) {
+  for (let n = start; n <= end; n += step) 
+  {
     arr.push(n);
   }
 
   return arr;
-};
+}
 
 /**
  * This function takes an array of user objects and their usage in minutes of various applications. The format of the data should be as follows:
@@ -85,16 +88,18 @@ export const getScreentimeAlertList = (users, date) => {
       return entry.date === date;
     })
 
-    if (screenTime !== undefined) {
+    if (screenTime !== undefined) 
+    {
       totalTime = calcTotalScreenTime(screenTime.usage);
-      if (totalTime > 100) {
+      if (totalTime > 100) 
+      {
         arr.push(user.username);
       }
     }
   });
 
   return arr;
-};
+}
 
 /**
  * Sums the time values from the supplied object and returns the total
@@ -130,9 +135,9 @@ export const hexToRGB = (hexStr) => {
   if (hexStr === undefined) throw new Error("hexStr is required");
   if (typeof hexStr !== "string" || hexStr.startsWith('#') === false || hexStr.length < 7) throw new Error("hex colour code is required");
 
-  let r = Number.parseInt(hexStr.slice(1, 3), 16);
-  let g = Number.parseInt(hexStr.slice(3, 5), 16);
-  let b = Number.parseInt(hexStr.slice(5, 7), 16);
+  const r = Number.parseInt(hexStr.slice(1, 3), 16);
+  const g = Number.parseInt(hexStr.slice(3, 5), 16);
+  const b = Number.parseInt(hexStr.slice(5, 7), 16);
 
   return "rgb(" + r + "," + g + "," + b + ")";
 };
@@ -151,35 +156,51 @@ export const findWinner = (board) => {
   if (board === undefined) throw new Error("board is required");
 
   // check all possible winner positions
-  function checkBoard(player, board) {
-    if (checkRows(player, board)) return true;
-    if (checkCols(player, board)) return true;
+  function checkBoard(player, board) 
+  {
+    if (checkRows(player, board)) 
+      return true;
+    if (checkCols(player, board)) 
+      return true;
     // check the 2 diagonals
-    if (checkRow(player, [board[0][0], board[1][1], board[2][2]])) return true;
-    if (checkRow(player, [board[0][2], board[1][1], board[2][0]])) return true;
+    if (checkRow(player, [board[0][0], board[1][1], board[2][2]])) 
+      return true;
+    if (checkRow(player, [board[0][2], board[1][1], board[2][0]])) 
+      return true;
+
     return false;
   }
 
   // check the 3 rows for a winner
-  function checkRows(player, board) {
-    for (let i = 0; i < 3; i++) {
-      if (checkRow(player, board[i])) return true;
+  function checkRows(player, board) 
+  {
+    for (let i = 0; i < 3; i++) 
+    {
+      if (checkRow(player, board[i])) 
+        return true;
     }
   }
 
   // check the 3 columns for a winner
-  function checkCols(player, board) {
-    for (let i = 0; i < 3; i++) {
-      if (checkRow(player, [board[0][i], board[1][i], board[2][i]])) return true;
+  function checkCols(player, board) 
+  {
+    for (let i = 0; i < 3; i++) 
+    {
+      if (checkRow(player, [board[0][i], board[1][i], board[2][i]])) 
+        return true;
     }
   }
 
   // check if a single row of 3 cells has a winner
-  function checkRow(player, row) {
+  function checkRow(player, row) 
+  {
     return row[0] === player && row[1] === player && row[2] === player;
   }
 
-  if (checkBoard("X", board)) return "X";
-  if (checkBoard("0", board)) return "0";
+  if (checkBoard("X", board)) 
+    return "X";
+  if (checkBoard("0", board)) 
+    return "0";
+
   return null;
-};
+}

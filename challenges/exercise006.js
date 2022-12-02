@@ -8,10 +8,11 @@ export const sumMultiples = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
   if (Array.isArray(arr) === false) return 0;
 
-  return arr.reduce((total, num) => {
+  return arr.reduce((total, num) => 
+  {
     return (num % 3 === 0 || num % 5 === 0) ? total + num : total;
   }, 0);    // 0 = total start value
-};
+}
 
 /**
  * This function will receive a string of characters and should return true/false depending on whether it is a valid DNA string. A valid DNA string may contain characters C, G, T or A only.
@@ -24,7 +25,7 @@ export const isValidDNA = (str) => {
   const re = /[^CGTA]/i;
 
   return str !== null && str.length > 0 && !re.test(str);
-};
+}
 
 /**
  * This function will receive a valid DNA string (see above) and should return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of "ACTG" would have a complementary DNA string of "TGAC".
@@ -34,7 +35,8 @@ export const isValidDNA = (str) => {
 export const getComplementaryDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
 
-  if (isValidDNA(str) === false) {
+  if (isValidDNA(str) === false) 
+  {
     return "";
   }
 
@@ -46,7 +48,7 @@ export const getComplementaryDNA = (str) => {
   return (Array.from(str).map(ch => {
     return base2[base1.indexOf(ch)];
   })).join('');
-};
+}
 
 /**
  * This function should receive a number and return true/false depending on whether it is a prime number or not. A prime number is a number that can only be divided evenly by 1 and itself (for example, 7)
@@ -57,18 +59,23 @@ export const isItPrime = (n) => {
   if (n === undefined) throw new Error("n is required");
   if (typeof n != "number") return false;
 
-  if (n === 0 || n === 1) {
+  if (n === 0 || n === 1) 
+  {
     return false;
-  } else {
-    for (let i = 2; i < n; i++) {
-      if (n % i === 0) {
+  } 
+  else 
+  {
+    for (let i = 2; i < n; i++) 
+    {
+      if (n % i === 0) 
+      {
         return false;
       }
     }
   }
 
   return true;
-};
+}
 
 /**
  * This function should receive a number and return an array of n arrays, each filled with n items. The parameter "fill" should be used as the filler of the arrays.
@@ -86,16 +93,18 @@ export const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
 
-  let arr = new Array(n);           // outer array
-  for (let a = 0; a < n; a++) {
+  const arr = new Array(n);           // outer array
+  for (let a = 0; a < n; a++) 
+  {
     arr[a] = new Array(n);          // 'n' inner arrays
-    for (let i = 0; i < n; i++) {
+    for (let i = 0; i < n; i++) 
+    {
       arr[a][i] = fill;             // each inner array has 'n' elements
     }
   }
 
   return arr;
-};
+}
 
 /**
  * This function takes an array of staff objects in the format:
@@ -117,10 +126,11 @@ export const areWeCovered = (staff, day) => {
 
   let count = 0;
   staff.forEach(person => {
-    if (person.rota.find(workDay => new RegExp(day, 'i').test(workDay)) != undefined) {
+    if (person.rota.find(workDay => new RegExp(day, 'i').test(workDay)) != undefined) 
+    {
       count++;
     }
   });
 
   return count >= 3;
-};
+}

@@ -2,7 +2,7 @@
 
 export function capitalize(word) {
   if (word === undefined) throw new Error("word is required");
-  // Add your code here!
+  
   if(/[A-Z\W]/.test(word.charAt(0)))
   {
     return word;
@@ -16,7 +16,7 @@ export function capitalize(word) {
 export function generateInitials(firstName, lastName) {
   if (firstName === undefined) throw new Error("firstName is required");
   if (lastName === undefined) throw new Error("lastName is required");
-  // Add your code here!
+  
 
   //Frederic", "Bonneville")).toBe("F.B");
   return firstName.charAt(0) + "." +  lastName.charAt(0);
@@ -26,7 +26,7 @@ export function generateInitials(firstName, lastName) {
 export function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-  // Add your code here!
+  
 
   const totalPrice = originalPrice * ((100 + vatRate) / 100);
   
@@ -43,16 +43,14 @@ export function addVAT(originalPrice, vatRate) {
 export function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
-  // Add your code here!
-
+  
   const decreaseValue = (originalPrice * reduction) / 100;
   return originalPrice - decreaseValue.toFixed(2); // implicit cast to number
 }
 
 export function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
-  // Add your code here!
-
+  
   let midPoint;
   let len;
 
@@ -70,16 +68,14 @@ export function getMiddleCharacter(str) {
 }
 
 export function reverseWord(word) {
-  if (word === undefined) throw new Error("word is required");
-  // Add your code here!
+  if (word === undefined) throw new Error("word is required");  
 
   return word.split('').reverse().join('');
 }
 
 export function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // Add your code here!
-
+  
   const reversedWords = [];
 
   words.forEach(word => {
@@ -90,8 +86,7 @@ export function reverseAllWords(words) {
 }
 
 export function countLinuxUsers(users) {
-  if (users === undefined) throw new Error("users is required");
-  // Add your code here!
+  if (users === undefined) throw new Error("users is required");  
 
   let count = 0;
 
@@ -107,7 +102,6 @@ export function countLinuxUsers(users) {
 
 export function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
-  // Add your code here!
 
   let mean = 0;
   let total = 0;
@@ -127,8 +121,7 @@ export function getMeanScore(scores) {
 }
 
 export function simpleFizzBuzz(n) {
-  if (n === undefined) throw new Error("n is required");
-  // Add your code here!
+  if (n === undefined) throw new Error("n is required");  
 
   if (n % 15 === 0)
   { 
