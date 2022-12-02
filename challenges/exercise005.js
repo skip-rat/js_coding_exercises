@@ -32,26 +32,6 @@ export const count1sand0s = (str) => {
   }
 
   return counts;  
-
-/*  let zeros = 0;
-  let ones = 0;
-    
-  for (const c of str) 
-  {
-    if (c === '0') 
-    {
-      zeros++;
-    }
-    else if (c === '1') 
-    {
-      ones++;
-    }
-  }
-    
-  return {
-    1 : ones,
-    0 : zeros
-  };*/
 }
 
 export const reverseNumber = (n) => {
@@ -78,10 +58,12 @@ export const sumArrays = (arrs) => {
 
 export const arrShift = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
-  
-   //return Array(arr[arr.length - 1], ...arr.slice(1, arr.length - 1), arr[0]);
 
-  // [arr[0], arr[arr.length - 1]] = [arr[arr.length - 1], arr[0]];
+  // PLEASE NOTE: All 3 solutions work - uncomment to test
+  
+  //return Array(arr[arr.length - 1], ...arr.slice(1, arr.length - 1), arr[0]);
+
+  //[arr[0], arr[arr.length - 1]] = [arr[arr.length - 1], arr[0]];
 
   if(arr.length > 1)
   {
@@ -113,42 +95,11 @@ export const findNeedle = (haystack, searchTerm) => {
   }
 
   return false;
-  
-  /*searchTerm = searchTerm.toLowerCase();
-
-  Object.values(haystack).forEach(value => {
-    
-    if(typeof value === "string") 
-    {
-      if(value.toLowerCase().includes(searchTerm))
-      {      
-        console.log(searchTerm);
-        return true;
-      }
-    }
-  });
-  
-  return false;*/
-
-};
+}
 
 export const getWordFrequencies = (str) => {
   if (str === undefined) throw new Error("str is required");
   
-  // remove ! and lower case
-/*  str = str.replace(/[^a-zA-Z ]/g, "").toLowerCase();
-
-  const totals = {};
-  const words = str.split(" ");
-  words.forEach(word => {
-    if(Object.hasOwn(totals, word) === false) 
-    {
-      totals[word] = 0;
-    }
-
-    totals[word]++;
-  });
-*/
   // remove punctuation and make case insenstive
   str = str.replace(/[^a-zA-Z ]/g, "").toLowerCase();
 

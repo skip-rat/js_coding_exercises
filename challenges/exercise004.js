@@ -26,12 +26,6 @@ export function getIntegers(nums) {
 export function getCities(users) {
   if (!users) throw new Error("users is required");
   
- /* const cities = [];
-
-  users.forEach(user => cities.push(user.data.city.displayName));
-
-  return cities;*/
-
   return users.map(user => user.data.city.displayName);
 }
 
@@ -53,12 +47,6 @@ export function findSentencesContaining(sentences, str) {
 
 export function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  
-  /*const longestSides = [];
-  
-  triangles.forEach(triangle => longestSides.push(Math.max(...triangle)));
-
-  return longestSides;*/
-
+    
   return triangles.map(triangle => Math.max(...triangle));
 }
